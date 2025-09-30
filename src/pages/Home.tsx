@@ -4,6 +4,7 @@ import MovieList from '../components/MovieList';
 import { useDebouncedValue } from '../hooks/useDebouncedSearch';
 import { searchMovies } from '../services/omdb';
 import type { OMDBSearchItem } from '../types/omdb';
+import Loader from '../components/Loader';
 
 export default function Home() {
   const [q, setQ] = useState('');
@@ -48,11 +49,11 @@ export default function Home() {
   }, [debounced]);
 
   return (
-    <main className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Movie Search</h1>
+    <main className="p-5 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-6 text-center mt-5">Find Your Movie Night</h1>
       <SearchBar value={q} onChange={setQ} />
-      <div className="mt-4">
-        {loading && <p className="text-gray-600">Searching...</p>}
+      <div className="mt-10">
+        {loading && <Loader />}
         {error && (
           <div className="bg-yellow-50 border border-yellow-200 p-4 rounded">
             <p className="text-yellow-800">{error}</p>

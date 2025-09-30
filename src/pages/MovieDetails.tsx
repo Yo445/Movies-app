@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetchMovieById } from '../services/omdb';
 import type { OMDBMovie } from '../types/omdb';
 
@@ -35,7 +35,6 @@ export default function MovieDetails() {
 
   return (
     <article className="p-4 max-w-4xl mx-auto">
-      <Link to="/" className="inline-block text-indigo-600 hover:text-indigo-800 mb-4">← Back to results</Link>
       <div className="mt-4 bg-white rounded shadow p-4 flex flex-col sm:flex-row gap-6">
         <img src={poster} alt={`${movie.Title} poster`} loading="lazy" className="w-full sm:w-56 h-auto rounded object-cover" />
         <div className="flex-1">
